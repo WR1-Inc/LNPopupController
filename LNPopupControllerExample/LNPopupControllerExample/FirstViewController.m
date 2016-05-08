@@ -199,7 +199,7 @@
 	
 	DemoPopupContentViewController* demoVC = [DemoPopupContentViewController new];
 	demoVC.view.backgroundColor = LNRandomDarkColor();
-	demoVC.popupItem.title = [LoremIpsum sentence];
+	demoVC.popupItem.title = @"xxx";
 	demoVC.popupItem.subtitle = [LoremIpsum sentence];
 	demoVC.popupItem.progress = (float) arc4random() / UINT32_MAX;
 	

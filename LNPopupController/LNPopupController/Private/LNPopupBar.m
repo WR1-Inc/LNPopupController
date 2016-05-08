@@ -300,7 +300,7 @@ const NSInteger LNBarStyleInherit = -1;
 			}
 			
 			NSMutableParagraphStyle* paragraph = [NSMutableParagraphStyle new];
-			paragraph.alignment = NSTextAlignmentCenter;
+			paragraph.alignment = NSTextAlignmentLeft;
 			
 			NSMutableDictionary* defaultTitleAttribures = [@{NSParagraphStyleAttributeName: paragraph, NSFontAttributeName: [UIFont systemFontOfSize:12], NSForegroundColorAttributeName: self.barStyle == UIBarStyleDefault ? [UIColor blackColor] : [UIColor whiteColor]} mutableCopy];
 			[defaultTitleAttribures addEntriesFromDictionary:_titleTextAttributes];
