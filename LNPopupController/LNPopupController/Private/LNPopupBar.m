@@ -51,7 +51,6 @@ const NSInteger LNBarStyleInherit = -1;
 		[_toolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
 		_toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         _toolbar.layer.masksToBounds = YES;
-        [_toolbar setFrame:CGRectMake(-16, 0, [UIScreen mainScreen].bounds.size.width+16, 44)];
 		[self addSubview:_toolbar];
 		
 		_highlightView = [[UIView alloc] initWithFrame:self.bounds];
@@ -93,6 +92,7 @@ const NSInteger LNBarStyleInherit = -1;
 	[_backgroundView setFrame:self.bounds];
 	
 	[self.toolbar bringSubviewToFront:_titlesView];
+	[self.toolbar bringSubviewToFront:self.progressView];
 	
 	[self _layoutTitles];
 }
@@ -504,8 +504,13 @@ const NSInteger LNBarStyleInherit = -1;
 	fixed = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:NULL];
 	fixed.width = -2;
 	[items addObject:fixed];
+    
+    UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    spacer.width = -14; 
+    NSMutableArray *mItems = [items mutableCopy];
+    [mItems insertObject:spacer atIndex:0];
 	
-	[_toolbar setItems:items animated:YES];
+	[_toolbar setItems:mItems animated:YES];
 	
 	[self _layoutTitles];
 	

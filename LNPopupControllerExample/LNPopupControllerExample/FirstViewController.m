@@ -73,6 +73,15 @@
 		self.popupItem.leftBarButtonItems = @[ play ];
 		self.popupItem.rightBarButtonItems = @[ more ];
 	}
+    
+    UIButton *albumButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *genreImage = [UIImage imageNamed:@"genre6"];
+    [albumButton setImage:genreImage forState:UIControlStateNormal];
+    albumButton.frame = CGRectMake( 0, 4, 43, 40);
+    albumButton.clipsToBounds = YES;
+    UIBarButtonItem *album = [[UIBarButtonItem alloc] initWithCustomView:albumButton];
+    
+    self.popupItem.leftBarButtonItems = @[album ];
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
