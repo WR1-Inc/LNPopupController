@@ -51,6 +51,7 @@ const NSInteger LNBarStyleInherit = -1;
 		[_toolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
 		_toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         _toolbar.layer.masksToBounds = YES;
+        [_toolbar setFrame:CGRectMake(-16, 0, [UIScreen mainScreen].bounds.size.width+16, 44)];
 		[self addSubview:_toolbar];
 		
 		_highlightView = [[UIView alloc] initWithFrame:self.bounds];
