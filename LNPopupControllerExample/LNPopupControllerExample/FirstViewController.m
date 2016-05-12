@@ -202,6 +202,9 @@
 	demoVC.popupItem.title = @"xxx";
 	demoVC.popupItem.subtitle = [LoremIpsum sentence];
 	demoVC.popupItem.progress = (float) arc4random() / UINT32_MAX;
+//    [[LNPopupBar appearance] setBarTintColor:[UIColor colorWithWhite:1 alpha:0.5]];
+//    [[LNPopupBar appearance] setTranslucent:NO];
+//    [[LNPopupBar appearance] setBackgroundImage:[UIImage new]];
 	
 	demoVC.popupItem.accessibilityLabel = NSLocalizedString(@"Custom popup bar accessibility label", @"");
 	demoVC.popupItem.accessibilityHint = NSLocalizedString(@"Custom popup bar accessibility hint", @"");

@@ -48,9 +48,9 @@ const NSInteger LNBarStyleInherit = -1;
 		[self addSubview:_backgroundView];
 		
 		_toolbar = [[UIToolbar alloc] initWithFrame:fullFrame];
-		[_toolbar setBackgroundImage:[UIImage alloc] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+		[_toolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
 		_toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-		_toolbar.layer.masksToBounds = YES;
+        _toolbar.layer.masksToBounds = YES;
 		[self addSubview:_toolbar];
 		
 		_highlightView = [[UIView alloc] initWithFrame:self.bounds];
@@ -74,7 +74,7 @@ const NSInteger LNBarStyleInherit = -1;
 		_progressView.translatesAutoresizingMaskIntoConstraints = NO;
 		_progressView.trackImage = [UIImage alloc];
 		[_toolbar addSubview:_progressView];
-		[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_progressView(1)]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_progressView)]];
+		[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_progressView(4)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_progressView)]];
 		[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_progressView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_progressView)]];
 		
 		_needsLabelsLayout = YES;
