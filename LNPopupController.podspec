@@ -20,7 +20,8 @@ Pod::Spec.new do |s|
   s.summary      = "LNPopupController is a framework for presenting view controllers as popups of other view controllers"
 
   s.description  = <<-DESC
-LNPopupController is a framework for presenting view controllers as popups of other view controllers, much like the Apple Music and Podcasts apps.                   DESC
+LNPopupController is a framework for presenting view controllers as popups of other view controllers, much like the Apple Music and Podcasts apps.                   
+DESC
 
   s.homepage     = "https://github.com/WR1-Inc/LNPopupController"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
