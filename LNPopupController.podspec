@@ -17,10 +17,10 @@ Pod::Spec.new do |s|
 
   s.name         = "LNPopupController"
   s.version      = "1.4.3"
-  s.summary      = "LNPopupController is a framework for presenting view controllers as popups of other view controllers, much like the Apple Music and Podcasts apps."
+  s.summary      = "LNPopupController is a framework for presenting view controllers as popups of other view controllers"
 
   s.description  = <<-DESC
-                   DESC
+LNPopupController is a framework for presenting view controllers as popups of other view controllers, much like the Apple Music and Podcasts apps.                   DESC
 
   s.homepage     = "https://github.com/WR1-Inc/LNPopupController"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT (example)"
+  s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
