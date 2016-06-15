@@ -48,9 +48,9 @@ const NSInteger LNBarStyleInherit = -1;
 		[self addSubview:_backgroundView];
 		
 		_toolbar = [[UIToolbar alloc] initWithFrame:fullFrame];
-		[_toolbar setBackgroundImage:[UIImage alloc] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+		[_toolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
 		_toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-		_toolbar.layer.masksToBounds = YES;
+        _toolbar.layer.masksToBounds = YES;
 		[self addSubview:_toolbar];
 		
 		_highlightView = [[UIView alloc] initWithFrame:self.bounds];
@@ -74,7 +74,7 @@ const NSInteger LNBarStyleInherit = -1;
 		_progressView.translatesAutoresizingMaskIntoConstraints = NO;
 		_progressView.trackImage = [UIImage alloc];
 		[_toolbar addSubview:_progressView];
-		[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_progressView(1)]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_progressView)]];
+		[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_progressView(4)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_progressView)]];
 		[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_progressView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_progressView)]];
 		
 		_needsLabelsLayout = YES;
@@ -90,6 +90,7 @@ const NSInteger LNBarStyleInherit = -1;
 	[_backgroundView setFrame:self.bounds];
 	
 	[self.toolbar bringSubviewToFront:_titlesView];
+	[self.toolbar bringSubviewToFront:self.progressView];
 	
 	[self _layoutTitles];
 }
@@ -298,7 +299,7 @@ const NSInteger LNBarStyleInherit = -1;
 			}
 			
 			NSMutableParagraphStyle* paragraph = [NSMutableParagraphStyle new];
-			paragraph.alignment = NSTextAlignmentCenter;
+			paragraph.alignment = NSTextAlignmentLeft;
 			
 			NSMutableDictionary* defaultTitleAttribures = [@{NSParagraphStyleAttributeName: paragraph, NSFontAttributeName: [UIFont systemFontOfSize:12], NSForegroundColorAttributeName: self.barStyle == UIBarStyleDefault ? [UIColor blackColor] : [UIColor whiteColor]} mutableCopy];
 			[defaultTitleAttribures addEntriesFromDictionary:_titleTextAttributes];
@@ -501,8 +502,13 @@ const NSInteger LNBarStyleInherit = -1;
 	fixed = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:NULL];
 	fixed.width = -2;
 	[items addObject:fixed];
+    
+    UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    spacer.width = -14; 
+    NSMutableArray *mItems = [items mutableCopy];
+    [mItems insertObject:spacer atIndex:0];
 	
-	[_toolbar setItems:items animated:YES];
+	[_toolbar setItems:mItems animated:YES];
 	
 	[self _layoutTitles];
 	

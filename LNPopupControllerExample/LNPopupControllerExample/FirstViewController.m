@@ -73,6 +73,15 @@
 		self.popupItem.leftBarButtonItems = @[ play ];
 		self.popupItem.rightBarButtonItems = @[ more ];
 	}
+    
+    UIButton *albumButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *genreImage = [UIImage imageNamed:@"genre6"];
+    [albumButton setImage:genreImage forState:UIControlStateNormal];
+    albumButton.frame = CGRectMake( 0, 4, 43, 40);
+    albumButton.clipsToBounds = YES;
+    UIBarButtonItem *album = [[UIBarButtonItem alloc] initWithCustomView:albumButton];
+    
+    self.popupItem.leftBarButtonItems = @[album ];
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
@@ -199,9 +208,12 @@
 	
 	DemoPopupContentViewController* demoVC = [DemoPopupContentViewController new];
 	demoVC.view.backgroundColor = LNRandomDarkColor();
-	demoVC.popupItem.title = [LoremIpsum sentence];
+	demoVC.popupItem.title = @"xxx";
 	demoVC.popupItem.subtitle = [LoremIpsum sentence];
 	demoVC.popupItem.progress = (float) arc4random() / UINT32_MAX;
+//    [[LNPopupBar appearance] setBarTintColor:[UIColor colorWithWhite:1 alpha:0.5]];
+//    [[LNPopupBar appearance] setTranslucent:NO];
+//    [[LNPopupBar appearance] setBackgroundImage:[UIImage new]];
 	
 	demoVC.popupItem.accessibilityLabel = NSLocalizedString(@"Custom popup bar accessibility label", @"");
 	demoVC.popupItem.accessibilityHint = NSLocalizedString(@"Custom popup bar accessibility hint", @"");
